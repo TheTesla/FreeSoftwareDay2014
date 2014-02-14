@@ -1,0 +1,101 @@
+%% Basierend auf einer TeXnicCenter-Vorlage von Mark Müller
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Wählen Sie die Optionen aus, indem Sie % vor der Option entfernen  
+% Dokumentation des KOMA-Script-Packets: scrguide
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Optionen zum Layout des Briefs                                    %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\documentclass%																			
+%[DINmtext]								% mehr Platz für Text für DIN C6-Umschläge
+%[SN]											% schweizer DIN-Formatierung
+%[SNleft]									% schweizer Briefe mit Anschrift links
+%[fontsize=10pt]					% Schriftgröße (11pt, 12pt (Standard))
+{scrlttr2}		
+													
+\KOMAoptions{%
+%headsepline=on,					% Trennline zum Seitenkopf der Folgeseiten
+%footsepline=on,					% Trennline zur Fußzeile
+%pagenumber=headcenter,		% Position der Seitennummer, s. scrguide 6.2
+%fromalign=center,				% Position des Absenders (right)	 
+%fromrule=afteradress,		% Linie innerhalb des Absenders (aftername)
+%fromphone=on, 						% Telefonnummer des Absenders wird gezeigt
+%fromemail=on, 						% Emailadresse des Absenders wird gezeigt
+%fromfax=on,							% Faxnummer des Absenders wird gezeigt
+%fromurl=on,							% URL des Absenders wird gezeigt
+%addrfield=off,						% Adressfeld wird nicht angezeigt
+%backaddress=off,					% Absenderzeile im Adressfeld wird nicht angezeigt
+%foldmarks=off,						% Falzmarkierung werden nicht gesetzt
+%numericaldate=on,				% rein nummerisches Datum wird angezeigt
+%subject=titled						% Betreff wird mit "Betrifft: " versehen
+%parskip=half*,						% Steuerung Absatzformatierung, s. scrguide 6.2
+%enlargefirstpage=on			% läßt evtl. mehr Text auf der Seite zu (s.a. enlargethispage{})
+}
+
+%\pagestyle{headings}			% Schaltet Kopfzeilen der Folgeseiten an
+
+
+%% Deutsche Anpassungen %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage[ngerman]{babel}
+\usepackage[T1]{fontenc}
+\usepackage[ansinew]{inputenc}
+\usepackage{eurosym}
+\usepackage{lmodern} %Type1-Schriftart für nicht-englische Texte
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Ihre Absenderangaben, Zuschaltung über KOMAoptions, s.o.         %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\setkomavar{fromname}{Maximiliane Musterfrau}
+\setkomavar{fromaddress}{Augustusburger Str. 102 \\ 09126 Karl-Marx-Stadt}
+\setkomavar{fromphone}{(+4937) 1337 18088}
+\setkomavar{fromemail}{info@chaoschemnitz.de}
+\setkomavar{backaddress}{Maximiliane Musterfrau, Augustusburger Str. 102, 09126 Karl-Marx-Stadt}
+\setkomavar{signature}{Maximiliane Musterfrau}
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%% Der Briefinhalt                                                  %%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\setkomavar{title}{fetter großer Titel}	% Anzeige eines Titels
+\setkomavar{subject}{Sie haben gewonnen!}
+%\setkomavar{date}{31.01.2014} 						% falls nicht das aktuelle Datum gewünscht						
+
+% Definition des Templates
+\newcommand\brief[6]{
+%% Adressangaben %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{letter}{#1 #2\\#3\\#4 #5}
+
+%% Beginn des Brieftextes %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\opening{Guten Tag #1,}% oder andere Anrede einsetzen
+
+Sie sind exklusiver Lotteriegewinner. Wir gratulieren Ihnen zum Gewinn von 1.000.000~#6. Wir bitten Sie die zur Auszahlung erforderliche Bearbeitungsgebühr in Höhe von 50~#6 zu Überweisen. Nutzen Sie dazu den beigefügten Überweisungsträger.
+
+\closing{Mit freundlichen Grüßen}				% oder anderen Gruß einsetzen										
+\encl{Überweisungsschein}	% Anlage(n)
+
+\end{letter}
+}
+
+ 
+\def\readdataline#1;#2;#3;#4;#5;#6\relax{ \brief{#1}{#2}{#3}{#4}{#5}{#6} }
+
+\begin{document}
+
+
+\newread\datensaetze
+\openin\datensaetze=Quelle.dat
+
+\loop
+	\read\datensaetze to \datensatz
+	\ifeof\datensaetze
+	\else
+		\expandafter\readdataline \datensatz \relax
+		\repeat
+	 
+\closein\datensaetze
+
+\end{document}
