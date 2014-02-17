@@ -1,0 +1,158 @@
+
+\documentclass[xetex]{beamer}
+
+\usepackage[ngerman]{babel}
+\usepackage{graphicx}
+\usepackage{pifont}
+\usepackage{fontspec}
+\setmainfont{unifont}
+
+\mode<presentation> {
+\usetheme{Frankfurt}
+\setbeamertemplate{navigation symbols}{}
+}
+
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+
+\setframeofframes{of}
+\makeatletter
+\setbeamertemplate{footline}
+  {%
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+\title[I \ding{170} Free Softwarfe -- \insertsubtitle]{I \ding{170} Free Software}
+\subtitle{Warum freie Software?}
+\author{Matthias Fritzsche, Stefan Helmert}
+\institute[ChaosChemnitz]{ChaosTreff Chemnitz
+\medskip \textit{info@chaoschemnitz.de}}
+\date{14. Februar 2014}
+
+\begin{document}
+
+\begingroup
+\renewcommand*\dohead{\rule{0em}{1.49em}}
+\frame{\titlepage} % Print the title page as the first slide
+
+
+
+\begin{frame}
+\frametitle{Gliederung} % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+\end{frame}
+\endgroup
+
+\begingroup
+\section{Vorteile!?}
+\begin{frame}
+\frametitle{Vorteile!?}
+\begin{itemize}
+\item Wartbarkeit/Anpassbarkeit
+\item Testbarkeit -- Compilerunabhängig
+\item Fehler können von unabhängigen Personen gefunden werden
+\begin{itemize}
+    \item Wer hat schon Bock darauf das Kauderwelsch von Narzisten zu überprüfen, die nicht in der Lage sind mit dieser "`Arbeit"' Geld zu verdienen?
+\end{itemize}
+\item größerer Druck auf die Entwickler, bei Fehlern -- Nö, ist doch kostenloser Ramsch
+\item daher meist zeitnahe Behebung -- Firefox-Versionsnummer als Beweis
+\item bei GPL: Zwang Änderungen/Erweiterungen zu veröffentlichen
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{noch mehr Vorteile!}
+\begin{itemize}
+    \item Top Doku -- weil jeder auf der Welt die Software kostenlos ausprobieren und penibel dokumentieren kann, auch den Quellcode -- natürlich übersichtlich in Doxygen
+    \item Top Support -- begeisterte Nutzer und Entwickler wollen kein Geld verdienen -- sie wollen Ruhm und Ehre, indem sie alle durch selbstlose Unterstützung von den Vorteilen ihrer Software überzeugen
+    \item 100 \% zuverlässig und fehlerfrei -- ausgiebige Test durch viele unabhängige Tester -- Testen ist bei kommerzieller Software extrem teuer, d. h. nicht wirtschaftlich möglich
+    \item schnelle Reaktion auf den Markt -- bevor kapitalistische CS-Nazis auf den Markt drängen
+    \item Riesige Auswahl -- Entwicklung ist ja schließlich kostenlos
+    \item Es gibt keine Sicherheitslücken! Wer den Quellcode durchgelesen hätte, hätte erkennen müssen, dass die Software nie für diesen Zweck gedacht war.
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{die wichtigsten Tatsachen!}
+\begin{itemize}
+    \item Linux stürzt nie ab!
+    \item Linux hat keine Sicherheitslücken!
+    \item Linux ist das stabilste Betriebssystem!
+    \item Linux ist fehlerfrei!
+    \item Unter Linux gibt es Prinzipbedingt niemals Viren.
+    \item der GCC enthält keine Fehler, insbesondere keine, die die Sicherheit erzeugter Programme beeinträchtigen könnten!
+    \item Ohne den Quellecode zu kennen ist es absolut nicht möglich Software hinschitlich Sicherheitslücken oder anderer Schwachstellen zu untersuchen!
+    \item Nur OS Verschlüsselungssoftware taugt leider nichts, jeder kann ja sehen wie sie funktioniert.
+    \item Die deutsche Automobilindustrie setzt auf frei Software!
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{kaum zu Glauben!}
+\begin{itemize}
+    \item Die Industrie strebt ein hohes Maß an Markttransparenz und Wettbewerb an. Sie entwickelt daher modulare freie Software, die von den Wettbewerbern problemlos wiederverwendet und angepasst werden kann! 
+\end{itemize}
+\end{frame}
+
+\section{mal im Ernst}
+\begin{frame}
+\frametitle{mal im Ernst}
+\textbf{Warum sollte jemand freie Software herstellen?}
+\end{frame}
+
+\begin{frame}
+\frametitle{mal im Ernst}
+\begin{itemize}
+    \item weil man mit Hardware Geld verdienen kann
+    \begin{itemize}
+        \item RaspberryPi
+        \item 3D-Drucker
+        \item Openmoko
+    \end{itemize}
+    \item weil man mit Service Geld verdienen kann
+    \begin{itemize}
+        \item Cloud
+        \item Anpassung
+        \item Schulung
+    \end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{mal im Ernst}
+\begin{itemize}
+    \item weil man Closed Source Addons verkaufen kann
+    \item weil mit Zertifizierungen für Drittanbieter Geld verdienen kann
+\end{itemize}
+\end{frame}
+
+\begingroup
+\renewcommand*\dohead{\rule{0em}{1.49em}}
+\section*{}
+\begin{frame}
+\frametitle{Ende}
+\centering{Fragen\\
+und\\
+Antworten.\\}
+\end{frame}
+
+\endgroup
+
+\end{document} 
